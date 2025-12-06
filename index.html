@@ -1,0 +1,912 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<script type="text/javascript" charset="utf-8" src="https://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+<style type="text/css">
+body {
+    font-family: "Titillium Web", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+    font-size: 17px;
+    margin-left: auto;
+    margin-right: auto;
+    background: linear-gradient(to bottom, #a0caf3, #f5c5c5);
+    background-attachment: fixed;
+}
+
+@media screen and (min-width: 980px){
+    body {
+        width: 980px;
+    }
+}
+
+h1 {
+    font-weight:300;
+    line-height: 1.15em;
+}
+
+h2 {
+    font-size: 1.75em;
+}
+a:link,a:visited {
+    color: #0E710E;
+    text-decoration: none;
+}
+a:hover {
+    color: #208799;
+}
+h1 {
+    text-align: center;
+}
+h2,h3 {
+    text-align: left;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: 500;
+    background: linear-gradient(130deg, #4fa5f6 0%, #e08080 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+h2 {
+    font-weight: 400;
+    margin: 16px 0px 4px 0px;
+}
+h3 {
+    font-weight: 600;
+    margin: 16px 0px 4px 0px;
+}
+
+.paper-title {
+    padding: 1px 0px 1px 0px;
+}
+section {
+    margin: 32px 0px 32px 0px;
+    text-align: justify;
+    clear: both;
+}
+.col-5 {
+     width: 20%;
+     float: left;
+}
+.col-4 {
+     width: 25%;
+     float: left;
+}
+.col-3 {
+     width: 33%;
+     float: left;
+}
+.col-2 {
+     width: 50%;
+     float: left;
+}
+.col-1 {
+     width: 100%;
+     float: left;
+}
+
+.author-row, .affil-row {
+    font-size: 26px;
+}
+
+.author-row-new {
+    text-align: center;
+}
+
+.author-row-new a {
+    display: inline-block;
+    font-size: 20px;
+    padding: 4px;
+    color: #363636;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.author-row-new a:hover {
+    color: #5d8cb8;
+}
+
+.author-row-new sup {
+    color: #313436;
+    font-size: 12px;
+}
+
+.affiliations-new {
+    font-size: 18px;
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.row {
+    margin: 16px 0px 16px 0px;
+}
+.authors {
+    font-size: 26px;
+}
+.affiliatons {
+    font-size: 18px;
+}
+.affil-row {
+    margin-top: 18px;
+}
+.teaser {
+    max-width: 100%;
+}
+.text-center {
+    text-align: center;  
+}
+.screenshot {
+    width: 256px;
+    border: 1px solid #ddd;
+}
+.screenshot-el {
+    margin-bottom: 16px;
+}
+hr {
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ddd;
+    margin: 0;
+}
+.material-icons {
+    vertical-align: -6px;
+}
+p {
+    line-height: 1.25em;
+}
+.caption {
+    font-size: 16px;
+    color: #666;
+    margin-top: 4px;
+    margin-bottom: 10px;
+}
+video {
+    display: block;
+    margin: auto;
+}
+figure {
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#bibtex pre {
+    font-size: 14px;
+    background-color: #eee;
+    padding: 16px;
+}
+.green {
+    color: #0E710E;
+    font-weight: bold;
+}
+.orange {
+    color: #d35400;
+    font-weight: bold;
+}
+.flex-row {
+    display: flex;
+    flex-flow: row wrap;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.coming-soon {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+}
+
+.paper-btn:hover {
+    color: #FF8563;
+    transform: translateY(-2px);
+}
+
+.paper-btn-parent {
+    display: flex;
+    justify-content: center;
+    margin: 16px 0px;
+    gap: 15px;
+    font-size: 16px;
+    flex-wrap: wrap;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #363636;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.1);
+    gap: 10px;
+}
+
+.button:hover {
+    background-color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    color: #363636;
+}
+
+.button .icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: rgba(160, 202, 243, 0.3);
+    font-size: 1em;
+    color: #4fa5f6 !important;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.button .icon i {
+    color: #4fa5f6;
+}
+
+.button:hover .icon {
+    background-color: rgba(245, 132, 132, 0.3);
+    border: 2px solid #e08080;
+    color: #d66767 !important;
+}
+
+.button:hover .icon i {
+    color: #d66767;
+}
+
+.button .icon img {
+    height: 1em;
+}
+
+.github-btn:hover {
+    color: #FF8563;
+    transform: translateY(-2px);
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.venue {
+    font-size: 23px;
+}
+
+.topnav {
+    background-color: #EEEEEE;
+    overflow: hidden;
+}
+
+.topnav div {
+    max-width: 1070px;
+    margin: 0 auto;
+}
+
+.topnav a {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    vertical-align: middle;
+    padding: 16px 16px;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.topnav img {
+    padding: 2px 0px;
+    width: 100%;
+    margin: 0.2em 0px 0.3em 0px;
+    vertical-align: middle;
+}
+
+pre {
+    font-size: 0.9em;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-radius: 3px;
+    background-color: rgb(235, 235, 235);
+    overflow-x: auto;
+}
+
+.download-thumb {
+    display: flex;
+}
+
+@media only screen and (max-width: 620px) {
+    .download-thumb {
+        display: none;
+    }
+}
+
+.paper-stuff {
+    width: 50%;
+    font-size: 20px;
+}
+
+@media only screen and (max-width: 620px) {
+    .paper-stuff {
+        width: 100%;
+    }
+}
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  text-align: center;
+  float: left;
+  width: 16.666%;
+  padding: 5px;
+}
+.column3 {
+  text-align: center;
+  float: left;
+  width: 33.333%;
+  padding: 5px;
+}
+.border-right {
+    border-right: 1px solid black;
+}
+.border-bottom{
+    border-bottom: 1px solid black;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.25fr;
+    gap: 10px;
+    width: 100%; 
+}
+
+.image-grid img {
+    width: 100%; 
+}
+
+.image-grid img:first-child {
+    object-fit: contain;
+}
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 500px) {
+  .column {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .column3 {
+    width: 100%;
+  }
+}
+
+.figure img {
+    width: 100%; 
+}
+
+.image-grid-three {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    width: 90%;
+    justify-items: center;
+    margin: 0 auto;
+}
+
+.image-grid-three img {
+    width: 100%; 
+}
+
+.image-grid-tab {
+    text-align: center;
+    justify-content: center;
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr 1.22fr;
+    gap: 10px;
+    width: 90%;
+    justify-items: center;
+    margin: 0 auto;
+}
+
+.image-grid-tab img {
+    width: 100%; 
+}
+
+/* Carousel Styles */
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
+    cursor: grab;
+    margin: 20px 0;
+    background: rgba(255, 255, 255, 0.3);
+    padding: 15px 0;
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+.carousel-container:active {
+    cursor: grabbing;
+}
+.carousel-track {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: max-content;
+    padding: 0 10px;
+}
+.carousel-row {
+    display: flex;
+    gap: 10px;
+}
+.carousel-item {
+    height: 180px;
+    width: auto;
+    border-radius: 6px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    pointer-events: none; /* Prevents default image dragging behavior */
+    background-color: white;
+}
+
+blockquote {
+    background-color: rgba(40, 40, 40, 0.2);
+    padding: 0px;
+    margin: 2px 0;
+    border-radius: 10px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+</style>
+
+<script type="text/javascript" src="../js/hidebib.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,600,400italic,600italic,300,300italic' rel='stylesheet' type='text/css'>
+    <head>
+        <title>Rethinking Training Dynamics in Scale-wise Autoregressive Generation</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta property="og:description" content="Rethinking Training Dynamics in Scale-wise Autoregressive Generation"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link href="https://fonts.googleapis.com/css2?family=FontAwesome" rel="stylesheet">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Rethinking Training Dynamics in Scale-wise Autoregressive Generation">
+    </head>
+
+ <body>
+<div class="container">
+    <div class="paper-title">
+    <h1>
+        Rethinking Training Dynamics in Scale-wise Autoregressive Generation
+    </h1>
+    </div>
+
+    <div id="authors">
+        <center>
+            <div class="author-row-new">
+                <a href="https://gengzezhou.github.io/" target="_blank">Gengze Zhou<sup>1*</sup></a>,
+                <a href="https://chongjiange.github.io/" target="_blank">Chongjian Ge<sup>2</sup></a>,
+                <a href="https://www.cs.unc.edu/~airsplay/" target="_blank">Hao Tan<sup>2</sup></a>,
+                <a href="https://pages.cs.wisc.edu/~fliu/" target="_blank">Feng Liu<sup>2</sup></a>,
+                <a href="https://yiconghong.me" target="_blank">Yicong Hong<sup>2</sup></a>
+            </div>
+        </center>
+        <center>
+        <div class="affiliations">
+            <span><sup>1</sup>Australian Institute for Machine Learning, Adelaide University</span>&nbsp;&nbsp;&nbsp;
+            <span><sup>2</sup>Adobe Research</span>
+        </div>
+            <div class="affil-row">
+            <!-- <div class="venue text-center"><b>CVPR 2026 Submission</b></div> -->
+        </div>
+
+        </center>
+
+        <div style="clear: both">
+            <div class="paper-btn-parent">
+                <a href="#" class="button paper-link" target="_blank">
+                    <span class="icon is-small">
+                        <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                </a>
+                <a href="#" class="button paper-link" target="_blank">
+                    <span class="icon is-small">
+                        <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="Hugging Face logo" style="height: 1em;">
+                    </span>
+                    <span>Hugging Face</span>
+                </a>
+                <a href="#" class="button" target="_blank">
+                    <span class="icon is-small">
+                        <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                </a>
+           </div>
+        </div>
+    </div>
+
+    <!-- Draggable Image Carousel -->
+    <div class="carousel-container" id="teaser-carousel">
+        <div class="carousel-track">
+            <div class="carousel-row">
+                <!-- Row 1 Images -->
+                <img src="assets/images/image1.png" class="carousel-item">
+                <img src="assets/images/image2.png" class="carousel-item">
+                <img src="assets/images/image3.png" class="carousel-item">
+                <img src="assets/images/image4.png" class="carousel-item">
+                <img src="assets/images/image5.png" class="carousel-item">
+                <img src="assets/images/image6.png" class="carousel-item">
+                <img src="assets/images/image7.png" class="carousel-item">
+                <img src="assets/images/image8.png" class="carousel-item">
+                <img src="assets/images/image9.png" class="carousel-item">
+                <img src="assets/images/image10.png" class="carousel-item">
+                <img src="assets/images/image11.png" class="carousel-item">
+                <img src="assets/images/image12.png" class="carousel-item">
+                <img src="assets/images/image13.png" class="carousel-item">
+                <img src="assets/images/image14.png" class="carousel-item">
+                <img src="assets/images/image15.png" class="carousel-item">
+                <img src="assets/images/image16.png" class="carousel-item">
+                <img src="assets/images/image17.png" class="carousel-item">
+                <img src="assets/images/image18.png" class="carousel-item">
+                <img src="assets/images/image19.png" class="carousel-item">
+                <img src="assets/images/image20.png" class="carousel-item">
+                <img src="assets/images/image21.png" class="carousel-item">
+            </div>
+            <div class="carousel-row">
+                <!-- Row 2 Images -->
+                <img src="assets/images/image22.png" class="carousel-item">
+                <img src="assets/images/image23.png" class="carousel-item">
+                <img src="assets/images/image24.png" class="carousel-item">
+                <img src="assets/images/image25.png" class="carousel-item">
+                <img src="assets/images/image26.png" class="carousel-item">
+                <img src="assets/images/image27.png" class="carousel-item">
+                <img src="assets/images/image28.png" class="carousel-item">
+                <img src="assets/images/image29.png" class="carousel-item">
+                <img src="assets/images/image30.png" class="carousel-item">
+                <img src="assets/images/image31.png" class="carousel-item">
+                <img src="assets/images/image32.png" class="carousel-item">
+                <img src="assets/images/image33.png" class="carousel-item">
+                <img src="assets/images/image34.png" class="carousel-item">
+                <img src="assets/images/image35.png" class="carousel-item">
+                <img src="assets/images/image36.png" class="carousel-item">
+                <img src="assets/images/image37.png" class="carousel-item">
+                <img src="assets/images/image38.png" class="carousel-item">
+                <img src="assets/images/image39.png" class="carousel-item">
+                <img src="assets/images/image40.png" class="carousel-item">
+                <img src="assets/images/image41.png" class="carousel-item">
+                <img src="assets/images/image42.png" class="carousel-item">
+            </div>
+            <div class="carousel-row">
+                <!-- Row 3 Images -->
+                <img src="assets/images/image43.png" class="carousel-item">
+                <img src="assets/images/image44.png" class="carousel-item">
+                <img src="assets/images/image45.png" class="carousel-item">
+                <img src="assets/images/image46.png" class="carousel-item">
+                <img src="assets/images/image47.png" class="carousel-item">
+                <img src="assets/images/image48.png" class="carousel-item">
+                <img src="assets/images/image49.png" class="carousel-item">
+                <img src="assets/images/image50.png" class="carousel-item">
+                <img src="assets/images/image51.png" class="carousel-item">
+                <img src="assets/images/image52.png" class="carousel-item">
+                <img src="assets/images/image53.png" class="carousel-item">
+                <img src="assets/images/image54.png" class="carousel-item">
+                <img src="assets/images/image55.png" class="carousel-item">
+                <img src="assets/images/image56.png" class="carousel-item">
+                <img src="assets/images/image57.png" class="carousel-item">
+                <img src="assets/images/image58.png" class="carousel-item">
+                <img src="assets/images/image59.png" class="carousel-item">
+                <img src="assets/images/image60.png" class="carousel-item">
+                <img src="assets/images/image61.png" class="carousel-item">
+                <img src="assets/images/image62.png" class="carousel-item">
+                <img src="assets/images/image63.png" class="carousel-item">
+            </div>
+            <div class="carousel-row">
+                <!-- Row 4 Images -->
+                <img src="assets/images/image64.png" class="carousel-item">
+                <img src="assets/images/image65.png" class="carousel-item">
+                <img src="assets/images/image66.png" class="carousel-item">
+                <img src="assets/images/image67.png" class="carousel-item">
+                <img src="assets/images/image68.png" class="carousel-item">
+                <img src="assets/images/image69.png" class="carousel-item">
+                <img src="assets/images/image70.png" class="carousel-item">
+                <img src="assets/images/image71.png" class="carousel-item">
+                <img src="assets/images/image72.png" class="carousel-item">
+                <img src="assets/images/image73.png" class="carousel-item">
+                <img src="assets/images/image74.png" class="carousel-item">
+                <img src="assets/images/image75.png" class="carousel-item">
+                <img src="assets/images/image76.png" class="carousel-item">
+                <img src="assets/images/image77.png" class="carousel-item">
+                <img src="assets/images/image78.png" class="carousel-item">
+                <img src="assets/images/image79.png" class="carousel-item">
+                <img src="assets/images/image80.png" class="carousel-item">
+                <img src="assets/images/image81.png" class="carousel-item">
+                <img src="assets/images/image82.png" class="carousel-item">
+                <img src="assets/images/image83.png" class="carousel-item">
+                <img src="assets/images/image84.png" class="carousel-item">
+            </div>
+        </div>
+    </div>
+
+    <section>
+        <h2>Abstract</h2>
+        <hr>
+        <p>
+            Recent advances in autoregressive (AR) generative models have produced increasingly powerful systems for media synthesis.
+            Among them, <b>next-scale prediction</b> has emerged as a popular paradigm, where models generate images in a coarse-to-fine manner.
+            However, scale-wise AR models suffer from <b>exposure bias</b>, which undermines generation quality.
+        </p>
+
+        <p>
+            We identify two primary causes of this issue:
+        </p>
+        <p>
+            <blockquote>
+                <p>
+                    <ol>
+                        <li><b>Train–test mismatch</b>: The model relies on imperfect predictions during inference but ground truth during training.</li>
+                        <li><b>Imbalanced learning difficulty</b>: Coarse scales must generate global structure from scratch, while fine scales only perform easier reconstruction.</li>
+                    </ol>
+                </p>
+            </blockquote>    
+        </p>
+        <p>
+            To address this, we propose <b>Self-Autoregressive Refinement (SAR)</b>. SAR introduces a <b>Stagger-Scale Rollout (SSR)</b> mechanism
+            to expose the model to its own intermediate predictions and a <b>Contrastive Student-Forcing Loss (CSFL)</b> to ensure stable training.
+            Experimental results show that applying SAR to pretrained AR models consistently improves generation quality with minimal computational overhead
+            (e.g., <b>5.2% FID reduction</b> on FlexVAR-d16 within 10 epochs).
+        </p>
+    </section>
+
+    <section>
+        <h2>The Problem: Exposure Bias in VAR</h2>
+        <hr>
+        <p>
+            Existing Visual Autoregressive (VAR) models suffer from training supervision imbalance. For <b>latent-space supervision</b>,
+            coarse scales receive ground-truth signals that contain little semantic structure, while their corresponding training inputs
+            are dominated by blurry upsampled artifacts. Consequently, the finest scale must reconstruct nearly all details, causing the
+            hierarchical prediction process to collapse into a single dominant scale and preventing effective coarse-to-fine learning.
+            While we could smooth the generation trajectory by <b>downsampling in image space</b>, this causes the earliest scales to
+            capture most semantics and scene structure already, leaving later scales to perform only mild sharpening or super-resolution,
+            thereby weakening the multiscale factorization of the model.
+        </p>
+
+        <div class="figure">
+            <img src="assets/supervision.png" alt="Illustration of training supervision imbalance">
+            <p class="caption">Figure 1: Illustration of training supervision imbalance.</p>
+        </div>
+
+        <div class="figure">
+            <img src="assets/Inference_imbalance.png" alt="Training-inference divergence caused by scale-wise supervision imbalance">
+            <p class="caption">Figure 2: <b>Training–inference divergence caused by scale-wise supervision imbalance.</b></p>
+        </div>
+
+        <p>
+            Under teacher-forcing (top), the model receives ground-truth latents at all scales; when training converged, the model produces clean generated results because it is evaluated under the same idealized inputs used during training.
+            At inference (bottom), the model must condition on its own coarse-scale predictions.
+            When generated early-scale latents are imperfect (e.g., 1×1), later scales, which were trained mainly as super-resolution task when using the smoothed up/down-sample image supervision, cannot correct the semantic error, leading to a complete collapse of the generation process.
+        </p>
+    </section>
+
+    <section>
+        <h2>The Solution: Self-Autoregressive Refinement (SAR)</h2>
+        <hr>
+        <p>
+            SAR is a lightweight post-training algorithm that bridges the train-test gap. It consists of two key components:
+        </p>
+
+        <div class="figure">
+            <img src="assets/SSR.jpg" alt="Self-Autoregressive Refinement (SAR) illustration">
+            <p class="caption">Figure 3: Illustration of Self-Autoregressive Refinement (SAR).</p>
+        </div>
+
+        <h3>1. Stagger-Scale Rollout (SSR)</h3>
+        <p>
+            The image is encoded into multi-scale latents \(\{f_i\}\), which condition an autoregressive generator. SSR is a two-step rollout strategy that is computationally efficient (requiring only one extra forward pass):
+        </p>
+        <ul>
+            <li><b>Step 1 (Teacher Forcing):</b> The model performs teacher forcing and predicts \(\hat{f}^{(T)}_i\) at all scales using ground-truth conditioning.</li>
+            <li><b>Step 2 (Student Forcing):</b> These predictions are upsampled to form scale-shifted inputs \(\tilde{f}^{(T)}_i\), enabling a second forward pass that produces student-forced predictions \(\hat{f}^{(S)}_i\).</li>
+        </ul>
+        <p>
+            Teacher-forcing loss provides ground-truth supervision, while the contrastive student-forcing loss aligns student-forced outputs with their teacher-forced counterparts. Together, these two passes form the Stagger-Scale Rollout used in SAR.
+        </p>
+
+        <h3>2. Contrastive Student-Forcing Loss (CSFL)</h3>
+        <p>
+            Naive student forcing often causes the model to drift away from the ground truth. To fix this, we introduce CSFL:
+        </p>
+        <ul>
+            <li>Instead of forcing the student prediction to match the ground truth (which causes conflicts), CSFL aligns the <b>student prediction</b> \(\hat{f}^{(S)}_i\) with the <b>stable teacher prediction</b> \(\hat{f}^{(T)}_i\).</li>
+            <li>This teaches the model to remain consistent with the "expert" trajectory even when conditioned on imperfect inputs.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Results</h2>
+        <hr>
+        <p>
+            SAR achieves state-of-the-art results among scaling-scan autoregressive models, offering the best trade-off between throughput and image quality.
+        </p>
+
+        <h3>Quantitative Comparison (ImageNet 256×256)</h3>
+        <p>
+            The table below shows consistent improvements across different model sizes when applying SAR to pretrained FlexVAR models:
+        </p>
+
+        <table style="width:100%; border-collapse: collapse; margin: 20px 0;">
+            <thead>
+                <tr style="background-color: #f0f0f0;">
+                    <th style="padding: 10px; text-align: left; border: 1px solid #ddd;">Model</th>
+                    <th style="padding: 10px; text-align: center; border: 1px solid #ddd;">Params</th>
+                    <th style="padding: 10px; text-align: center; border: 1px solid #ddd;">FID ↓</th>
+                    <th style="padding: 10px; text-align: center; border: 1px solid #ddd;">IS ↑</th>
+                    <th style="padding: 10px; text-align: center; border: 1px solid #ddd;">Improvement</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #ddd;">FlexVAR-d16</td>
+                    <td style="padding: 10px; text-align: center; border: 1px solid #ddd;">310M</td>
+                    <td style="padding: 10px; text-align: center; border: 1px solid #ddd;">3.05</td>
+                    <td style="padding: 10px; text-align: center; border: 1px solid #ddd;">291.3</td>
+                    <td style="padding: 10px; text-align: center; border: 1px solid #ddd;">-</td>
+                </tr>
+                <tr style="background-color: #f9f9f9;">
+                    <td style="padding: 10px; border: 1px solid #ddd;"><b>FlexVAR-d16 + SAR (Ours)</b></td>
+                    <td style="padding: 10px; text-align: center; border: 1px solid #ddd;">310M</td>
+                    <td style="padding: 10px; text-align: center; border: 1px solid #ddd;"><b>2.89</b></td>
+                    <td style="padding: 10px; text-align: center; border: 1px solid #ddd;">266.6</td>
+                    <td style="padding: 10px; text-align: center; border: 1px solid #ddd;"><b>-5.2% FID</b></td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #ddd;">FlexVAR-d20</td>
+                    <td style="padding: 10px; text-align: center; border: 1px solid #ddd;">600M</td>
+                    <td style="padding: 10px; text-align: center; border: 1px solid #ddd;">2.41</td>
+                    <td style="padding: 10px; text-align: center; border: 1px solid #ddd;">299.3</td>
+                    <td style="padding: 10px; text-align: center; border: 1px solid #ddd;">-</td>
+                </tr>
+                <tr style="background-color: #f9f9f9;">
+                    <td style="padding: 10px; border: 1px solid #ddd;"><b>FlexVAR-d20 + SAR (Ours)</b></td>
+                    <td style="padding: 10px; text-align: center; border: 1px solid #ddd;">600M</td>
+                    <td style="padding: 10px; text-align: center; border: 1px solid #ddd;"><b>2.35</b></td>
+                    <td style="padding: 10px; text-align: center; border: 1px solid #ddd;">293.3</td>
+                    <td style="padding: 10px; text-align: center; border: 1px solid #ddd;"><b>-2.5% FID</b></td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #ddd;">FlexVAR-d24</td>
+                    <td style="padding: 10px; text-align: center; border: 1px solid #ddd;">1.0B</td>
+                    <td style="padding: 10px; text-align: center; border: 1px solid #ddd;">2.21</td>
+                    <td style="padding: 10px; text-align: center; border: 1px solid #ddd;">299.1</td>
+                    <td style="padding: 10px; text-align: center; border: 1px solid #ddd;">-</td>
+                </tr>
+                <tr style="background-color: #f9f9f9;">
+                    <td style="padding: 10px; border: 1px solid #ddd;"><b>FlexVAR-d24 + SAR (Ours)</b></td>
+                    <td style="padding: 10px; text-align: center; border: 1px solid #ddd;">1.0B</td>
+                    <td style="padding: 10px; text-align: center; border: 1px solid #ddd;"><b>2.14</b></td>
+                    <td style="padding: 10px; text-align: center; border: 1px solid #ddd;">315.5</td>
+                    <td style="padding: 10px; text-align: center; border: 1px solid #ddd;"><b>-3.1% FID</b></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Qualitative Analysis</h3>
+        <p>
+            As shown in the visualizations, SAR produces smoother transitions between scales and possesses stronger <b>error correction</b> capabilities.
+            Unlike standard VAR models that amplify early mistakes, SAR effectively refines artifacts during the coarse-to-fine generation process.
+        </p>
+
+        <div class="figure">
+            <img src="assets/comparison.png" alt="Comparison of SAR and FlexVAR generation process">
+            <p class="caption">Comparison of the generation process: SAR demonstrates smoother transitions and error correction compared to FlexVAR.</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Efficiency</h2>
+        <hr>
+        <p>
+            SAR is designed as a post-training refinement stage. It requires only <b>10 epochs</b> of fine-tuning on top of a pretrained model,
+            amounting to approximately <b>5.5% of the pretraining cost</b>.
+        </p>
+    </section>
+
+    <section id="bibtex">
+        <h2>Citation</h2>
+        <hr>
+        <pre><code>@article{zhou2026rethinking,
+  title={Rethinking Training Dynamics in Scale-wise Autoregressive Generation},
+}</code></pre>
+    </section>
+
+</div>
+
+<script>
+    const slider = document.getElementById('teaser-carousel');
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+    let autoScrollInterval;
+    let isPaused = false;
+
+    // Auto-scroll functionality
+    function startAutoScroll() {
+        autoScrollInterval = setInterval(() => {
+            if (!isPaused) {
+                slider.scrollLeft += 1; // Scroll speed (pixels per interval)
+
+                // Reset to beginning when reaching the end
+                if (slider.scrollLeft >= slider.scrollWidth - slider.clientWidth) {
+                    slider.scrollLeft = 0;
+                }
+            }
+        }, 20); // Interval in milliseconds (lower = faster)
+    }
+
+    // Manual drag functionality
+    slider.addEventListener('mousedown', (e) => {
+        isDown = true;
+        isPaused = true;
+        slider.classList.add('active');
+        startX = e.pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
+    });
+
+    slider.addEventListener('mouseleave', () => {
+        isDown = false;
+        isPaused = false;
+        slider.classList.remove('active');
+    });
+
+    slider.addEventListener('mouseup', () => {
+        isDown = false;
+        isPaused = false;
+        slider.classList.remove('active');
+    });
+
+    slider.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - slider.offsetLeft;
+        const walk = (x - startX) * 2; // Scroll-fast
+        slider.scrollLeft = scrollLeft - walk;
+    });
+
+    // Pause auto-scroll on hover
+    slider.addEventListener('mouseenter', () => {
+        isPaused = true;
+    });
+
+    slider.addEventListener('mouseleave', () => {
+        if (!isDown) {
+            isPaused = false;
+        }
+    });
+
+    // Start auto-scrolling when page loads
+    startAutoScroll();
+</script>
+</body>
+</html>
