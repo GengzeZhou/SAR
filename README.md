@@ -144,7 +144,7 @@ bash scripts/train_SAR_d20.sh
 bash scripts/train_SAR_d24.sh
 ```
 
-> **Note:** (1) For simplicity, instead of training a FlexVAR model for 170 epochs and then applying SAR for 10 epochs, in the following examples we directly download the pretrained FlexVAR checkpoint (e.g., 180 epochs for d16) and train SAR for 10 additional epochs. (2) The [`scalear_trainer.py`](scalear_trainer.py), [`scalear.py`](model/scalear.py) implements the hybrid modeling model described in **Section 3.3** of our paper, but is not used in the main experiment. The code is extensively commented for clarity; readers are encouraged to review it to gain a deeper understanding of the design choices and preliminary experiments underlying this work.
+> **Note:** (1) For simplicity, instead of training a FlexVAR model for 170 epochs and then applying SAR for 10 epochs, in the following examples we directly download the pretrained FlexVAR checkpoint (e.g., 180 epochs for d16) and train SAR for 10 additional epochs. (2) The [`scalear_trainer.py`](scalear_trainer.py), [`scalear.py`](models/scalear.py) implements the hybrid modeling model described in **Section 3.3** of our paper, but is not used in the main experiment. The code is extensively commented for clarity; readers are encouraged to review it to gain a deeper understanding of the design choices and preliminary experiments underlying this work.
 
 ### Logging with Weights & Biases
 
