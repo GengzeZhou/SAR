@@ -1,0 +1,26 @@
+# Core dependencies
+torch>=2.0.0
+torchvision
+numpy
+tqdm
+scipy
+Pillow
+huggingface_hub
+transformers
+
+# Logging
+tensorboard
+wandb  # Optional: for Weights & Biases integration
+
+# Optional performance enhancements
+# Uncomment if you want to use these
+# flash-attn
+# xformers
+
+# For evaluation
+matplotlib
+opencv-python
+
+# Utilities
+typed-argument-parser  # For command line argument parsing
+pytz  # For timezone handling 
